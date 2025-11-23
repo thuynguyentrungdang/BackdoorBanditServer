@@ -8,7 +8,6 @@
                   "576165642459773c7a400233",
                   "5447b6094bdc2dc3278b4567",
                   "60db29ce99594040e04c4a27",
-                  "5580223e4bdc2d1c128b457f",
                   "56dee2bdd2720bc8328b4567",
                   "606dae0ab0e443224b421bb7",
                   "64748cb8de82c85eaf0a273a",
@@ -44,5 +43,18 @@
   
   "whitelistedRounds": ["5d6e68a8a4b9360b6c0d54e2",
                         "660137d8481cc6907a0c5cda",
-                        "660137ef76c1b56143052be8"]
+                        "660137ef76c1b56143052be8"],
+  "plebMode": false,
+  "semiPlebMode": false,
+  "breachingRoundOpensMetalDoors": false,
+  "openLootableContainers": false,
+  "openCarDoors": false,
+  "minHitPoints": 100,
+  "maxHitPoints": 200,
+  "explosiveTimerInSec": 10,
+  "explosionStat": {
+    "ExplosionDoesDamage": false,
+    "ExplosionRadius": 5,
+    "ExplosionDamage": 80
+  }
 }
