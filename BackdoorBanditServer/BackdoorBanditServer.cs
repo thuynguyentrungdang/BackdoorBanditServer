@@ -4,6 +4,7 @@ using SPTarkov.DI.Annotations;
 using SPTarkov.Server.Core.DI;
 using SPTarkov.Server.Core.Helpers;
 using SPTarkov.Server.Core.Models.Spt.Mod;
+using SPTarkov.Server.Core.Models.Utils;
 using Range = SemanticVersioning.Range;
 
 namespace BackdoorBanditServer;
@@ -13,7 +14,7 @@ public record ModMetadata : AbstractModMetadata
     public override string ModGuid { get; init; } = "com.raitheraichu.backdoorbanditserver";
     public override string Name { get; init; } = "Backdoor Bandit Server";
     public override string Author { get; init; } = "RaiRaiTheRaichu";
-    public override SemanticVersioning.Version Version { get; init; } = new("2.0.1");
+    public override SemanticVersioning.Version Version { get; init; } = new("2.0.3");
     public override Range SptVersion { get; init; } = new("~4.0.0");
     public override string License { get; init; } = "MIT";
     public override bool? IsBundleMod { get; init; } = true;
@@ -28,6 +29,7 @@ public record ModMetadata : AbstractModMetadata
 
 [Injectable(TypePriority = OnLoadOrder.PostDBModLoader + 2)]
 public class BackdoorBanditServer (
+    ISptLogger<BackdoorBanditServer> logger,
     ModHelper modHelper,
     CustomStaticRouter customStaticRouter,
     WTTServerCommonLib.WTTServerCommonLib wttCommon) : IOnLoad
@@ -46,6 +48,8 @@ public class BackdoorBanditServer (
         
         // Use WTT-CommonLib services
         await wttCommon.CustomItemServiceExtended.CreateCustomItems(assembly);
+        
+        logger.Success("[BackdoorBanditServer] Loaded!");
         
         await Task.CompletedTask;
     }
