@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using System.Collections.Generic;
+using System.Reflection;
+using System.Threading.Tasks;
 using BackdoorBanditServer.Models;
 using SPTarkov.DI.Annotations;
 using SPTarkov.Server.Core.DI;
@@ -48,6 +50,7 @@ public class BackdoorBanditServer (
         
         // Use WTT-CommonLib services
         await wttCommon.CustomItemServiceExtended.CreateCustomItems(assembly);
+        await wttCommon.CustomHideoutRecipeService.CreateHideoutRecipes(assembly);
         
         logger.Success("[BackdoorBanditServer] Loaded!");
         
