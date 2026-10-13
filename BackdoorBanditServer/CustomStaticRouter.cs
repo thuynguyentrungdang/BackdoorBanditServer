@@ -35,7 +35,8 @@ public class CustomStaticRouter : StaticRouter
                     url,
                     info,
                     sessionId,
-                    output
+                    output,
+                    cancellationToken
                 ) => await HandleRoute(url, info, sessionId)
             )
         ];
